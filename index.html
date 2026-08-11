@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Brussel·les 2026</title>
+    <title>Viatge Brussel·les 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .fade-in { animation: fadeIn 0.3s ease-out; }
@@ -13,23 +13,23 @@
         
         /* Estil icona calendari */
         .cal-icon {
-            width: 80px;
-            height: 90px;
+            width: 85px;
+            height: 95px;
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            box-shadow: 0 4px 10px -1px rgb(0 0 0 / 0.1);
             border: 1px solid #e2e8f0;
         }
         .cal-header {
-            background: #ef4444; /* Vermell calendari */
-            height: 24px;
+            background: #ef4444; 
+            height: 26px;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -47,83 +47,38 @@
 
     <div class="max-w-md mx-auto min-h-screen flex flex-col bg-slate-50 shadow-xl">
         
-        <!-- PANTALLA INICIAL -->
+        <!-- PANTALLA INICIAL: CALENDARI -->
         <div id="screen-home" class="fade-in flex flex-col flex-grow">
             <header class="bg-indigo-900 text-white p-10 text-center rounded-b-[3rem] shadow-lg">
-                <h1 class="text-3xl font-black tracking-tighter uppercase leading-none">BRUSSEL·LES</h1>
-                <p class="text-indigo-300 font-bold mt-2 uppercase tracking-[0.3em] text-[10px]">Estiu 2026</p>
+                <h1 class="text-3xl font-black tracking-tighter uppercase leading-none italic">BRUSSEL·LES</h1>
+                <p class="text-indigo-300 font-bold mt-2 uppercase tracking-[0.3em] text-[10px]">Agost 2026</p>
             </header>
 
             <main class="p-6 flex-grow">
                 <div class="grid grid-cols-3 gap-y-8 gap-x-2 mt-4 place-items-center">
-                    <!-- DIA 25 -->
+                    <!-- Dies del 25 al 31 -->
                     <button onclick="obrirPDF('dia25.pdf')" class="btn-icon flex flex-col items-center">
-                        <div class="cal-icon">
-                            <div class="cal-header">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-slate-700">25</span>
-                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dt</span>
-                            </div>
-                        </div>
+                        <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">25</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dt</span></div></div>
                     </button>
-                    <!-- DIA 26 -->
                     <button onclick="obrirPDF('dia26.pdf')" class="btn-icon flex flex-col items-center">
-                        <div class="cal-icon">
-                            <div class="cal-header">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-slate-700">26</span>
-                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dc</span>
-                            </div>
-                        </div>
+                        <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">26</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dc</span></div></div>
                     </button>
-                    <!-- DIA 27 -->
                     <button onclick="obrirPDF('dia27.pdf')" class="btn-icon flex flex-col items-center">
-                        <div class="cal-icon">
-                            <div class="cal-header">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-slate-700">27</span>
-                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dj</span>
-                            </div>
-                        </div>
+                        <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">27</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dj</span></div></div>
                     </button>
-                    <!-- DIA 28 -->
                     <button onclick="obrirPDF('dia28.pdf')" class="btn-icon flex flex-col items-center">
-                        <div class="cal-icon">
-                            <div class="cal-header">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-slate-700">28</span>
-                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dv</span>
-                            </div>
-                        </div>
+                        <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">28</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dv</span></div></div>
                     </button>
-                    <!-- DIA 29 -->
                     <button onclick="obrirPDF('dia29.pdf')" class="btn-icon flex flex-col items-center">
-                        <div class="cal-icon">
-                            <div class="cal-header">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-slate-700">29</span>
-                                <span class="text-[8px] font-bold text-slate-400 uppercase">Ds</span>
-                            </div>
-                        </div>
+                        <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">29</span><span class="text-[8px] font-bold text-slate-400 uppercase">Ds</span></div></div>
                     </button>
-                    <!-- DIA 30 -->
                     <button onclick="obrirPDF('dia30.pdf')" class="btn-icon flex flex-col items-center">
-                        <div class="cal-icon">
-                            <div class="cal-header">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-slate-700">30</span>
-                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dg</span>
-                            </div>
-                        </div>
+                        <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">30</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dg</span></div></div>
                     </button>
-                    <!-- DIA 31 -->
                     <button onclick="obrirPDF('dia31.pdf')" class="btn-icon flex flex-col items-center col-start-2">
                         <div class="cal-icon border-indigo-200">
                             <div class="cal-header bg-indigo-600">AGO</div>
-                            <div class="cal-body">
-                                <span class="text-3xl font-black text-indigo-700">31</span>
-                                <span class="text-[8px] font-bold text-indigo-400 uppercase">Dl</span>
-                            </div>
+                            <div class="cal-body"><span class="text-3xl font-black text-indigo-700">31</span><span class="text-[8px] font-bold text-indigo-400 uppercase">Dl</span></div>
                         </div>
                     </button>
                 </div>
@@ -133,7 +88,7 @@
                 <button onclick="showScreen('screen-reserves')" class="w-full bg-slate-900 text-white p-6 rounded-[2rem] shadow-xl flex items-center justify-between btn-icon">
                     <div class="text-left">
                         <span class="block font-black text-xl uppercase tracking-tight">Reserves</span>
-                        <span class="text-xs text-slate-400 font-bold uppercase">Tickets i Confirmacions</span>
+                        <span class="text-xs text-slate-400 font-bold uppercase tracking-wide">Documents i Tickets</span>
                     </div>
                     <span class="bg-slate-800 p-3 rounded-full text-xl">📂</span>
                 </button>
@@ -157,6 +112,13 @@
                 <button onclick="showScreen('screen-bus')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
                     <span class="text-2xl mr-4">🚌</span>
                     <span class="font-bold text-slate-700 uppercase flex-grow text-left">Autobús</span>
+                    <span class="text-slate-300">→</span>
+                </button>
+
+                <!-- NOVA ICONA HOTEL -->
+                <button onclick="obrirPDF('reserva_hotel.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                    <span class="text-2xl mr-4">🏨</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Hotel</span>
                     <span class="text-slate-300">→</span>
                 </button>
 
@@ -203,22 +165,22 @@
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
                 <div class="ml-4">
-                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Bus</h2>
+                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Autobús</h2>
                     <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Tickets de grup</span>
                 </div>
             </header>
             <main class="p-6 space-y-3">
-                <button onclick="obrirPDF('BUS 1 - CRL - Bruselas Gare du Midi.pdf')" class="passatger-btn">Savina</button>
-                <button onclick="obrirPDF('BUS 2 - CRL - Bruselas Gare du Midi.pdf')" class="passatger-btn">Clara</button>
-                <button onclick="obrirPDF('BUS 3 - CRL - Bruselas Gare du Midi.pdf')" class="passatger-btn">Òliver</button>
-                <button onclick="obrirPDF('BUS 4 - CRL - Bruselas Gare du Midi.pdf')" class="passatger-btn">Anna</button>
-                <button onclick="obrirPDF('BUS 5 - CRL - Bruselas Gare du Midi.pdf')" class="passatger-btn">Pep</button>
+                <button onclick="obrirPDF('bus_savina.pdf')" class="passatger-btn">Savina</button>
+                <button onclick="obrirPDF('bus_clara.pdf')" class="passatger-btn">Clara</button>
+                <button onclick="obrirPDF('bus_oliver.pdf')" class="passatger-btn">Òliver</button>
+                <button onclick="obrirPDF('bus_anna.pdf')" class="passatger-btn">Anna</button>
+                <button onclick="obrirPDF('bus_pep.pdf')" class="passatger-btn">Pep</button>
             </main>
         </div>
 
         <!-- SIGNATURA -->
-        <footer class="text-center py-6">
-            <target="_blank" class="text-[10px] text-slate-300 font-bold uppercase tracking-widest italic">Família Serra-Casals</a>
+        <footer class="text-center py-6 mt-auto">
+            <a href="https://neurekalab.com" target="_blank" class="text-[10px] text-slate-300 font-bold uppercase tracking-widest italic">By NeurekaLAB</a>
         </footer>
     </div>
 
@@ -236,8 +198,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
         }
-        .passatger-btn::after { content: 'PDF →'; color: #6366f1; font-size: 10px; }
+        .passatger-btn:active { transform: scale(0.98); }
+        .passatger-btn::after { content: 'PDF →'; color: #6366f1; font-size: 10px; font-weight: 900; }
     </style>
 
     <script>
@@ -251,6 +215,8 @@
         }
 
         function obrirPDF(fitxer) {
+            // Això obre el PDF en una pestanya nova. 
+            // Si el fitxer està a la mateixa carpeta de GitHub, funcionarà perfectament.
             window.open(fitxer, '_blank');
         }
     </script>
