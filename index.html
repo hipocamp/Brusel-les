@@ -11,7 +11,6 @@
         .btn-icon { transition: all 0.2s; }
         .btn-icon:active { transform: scale(0.95); }
         
-        /* Estil icona calendari */
         .cal-icon {
             width: 85px;
             height: 95px;
@@ -74,6 +73,7 @@
 
             <main class="p-6 flex-grow">
                 <div class="grid grid-cols-3 gap-y-8 gap-x-2 mt-4 place-items-center">
+                    <!-- Botons del 25 al 31 -->
                     <button onclick="obrirPDF('dia25.pdf')" class="btn-icon flex flex-col items-center">
                         <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">25</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dt</span></div></div>
                     </button>
@@ -132,13 +132,13 @@
                     <span class="text-slate-300">→</span>
                 </button>
 
-                <button onclick="obrirPDF('reserva_hotel.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                <!-- BOTÓ HOTEL AMB LINK EXTERN -->
+                <button onclick="window.open('https://COPIA_AQUI_EL_LINK_DE_L_HOTEL', '_blank')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm text-blue-600">
                     <span class="text-2xl mr-4">🏨</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Hotel</span>
-                    <span class="text-slate-300">→</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Hotel (Enllaç)</span>
+                    <span class="text-blue-500 text-xs">WEB ↗</span>
                 </button>
 
-                <!-- ARA EL TREN OBRE UNA PANTALLA -->
                 <button onclick="showScreen('screen-tren')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
                     <span class="text-2xl mr-4">🚆</span>
                     <span class="font-bold text-slate-700 uppercase flex-grow text-left">Tren Amsterdam</span>
@@ -159,7 +159,7 @@
             </main>
         </div>
 
-        <!-- PANTALLA PASSATGERS (AVIÓ) -->
+        <!-- PANTALLA PASSATGERS (AVIÓ, BUS, TREN) -->
         <div id="screen-avions" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
@@ -174,7 +174,6 @@
             </main>
         </div>
 
-        <!-- PANTALLA PASSATGERS (BUS) -->
         <div id="screen-bus" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
@@ -189,7 +188,6 @@
             </main>
         </div>
 
-        <!-- PANTALLA PASSATGERS (TREN) - NOVA PANTALLA -->
         <div id="screen-tren" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
@@ -204,7 +202,6 @@
             </main>
         </div>
 
-        <!-- SIGNATURA -->
         <footer class="text-center py-6 mt-auto">
             <a href="https://neurekalab.com" target="_blank" class="text-[10px] text-slate-300 font-bold uppercase tracking-widest italic">By NeurekaLAB</a>
         </footer>
@@ -212,12 +209,8 @@
 
     <script>
         function showScreen(screenId) {
-            // Amagar totes les pantalles existents
             const screens = ['screen-home', 'screen-reserves', 'screen-avions', 'screen-bus', 'screen-tren'];
-            screens.forEach(id => {
-                document.getElementById(id).classList.add('hidden');
-            });
-            // Mostrar la seleccionada
+            screens.forEach(id => document.getElementById(id).classList.add('hidden'));
             document.getElementById(screenId).classList.remove('hidden');
             window.scrollTo(0,0);
         }
