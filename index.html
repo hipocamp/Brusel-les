@@ -41,6 +41,24 @@
             justify-content: center;
             padding-top: 5px;
         }
+
+        .passatger-btn {
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: left;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        }
+        .passatger-btn:active { transform: scale(0.98); }
+        .passatger-btn::after { content: 'PDF →'; color: #6366f1; font-size: 10px; font-weight: 900; }
     </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-900">
@@ -56,7 +74,6 @@
 
             <main class="p-6 flex-grow">
                 <div class="grid grid-cols-3 gap-y-8 gap-x-2 mt-4 place-items-center">
-                    <!-- Dies del 25 al 31 -->
                     <button onclick="obrirPDF('dia25.pdf')" class="btn-icon flex flex-col items-center">
                         <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">25</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dt</span></div></div>
                     </button>
@@ -115,14 +132,14 @@
                     <span class="text-slate-300">→</span>
                 </button>
 
-                <!-- NOVA ICONA HOTEL -->
                 <button onclick="obrirPDF('reserva_hotel.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
                     <span class="text-2xl mr-4">🏨</span>
                     <span class="font-bold text-slate-700 uppercase flex-grow text-left">Hotel</span>
                     <span class="text-slate-300">→</span>
                 </button>
 
-                <button onclick="obrirPDF('tren_amsterdam.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                <!-- ARA EL TREN OBRE UNA PANTALLA -->
+                <button onclick="showScreen('screen-tren')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
                     <span class="text-2xl mr-4">🚆</span>
                     <span class="font-bold text-slate-700 uppercase flex-grow text-left">Tren Amsterdam</span>
                     <span class="text-slate-300">→</span>
@@ -146,10 +163,7 @@
         <div id="screen-avions" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
-                <div class="ml-4">
-                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Avió</h2>
-                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Cartes d'embarcament</span>
-                </div>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Avió</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Cartes d'embarcament</span></div>
             </header>
             <main class="p-6 space-y-3">
                 <button onclick="obrirPDF('vol_savina.pdf')" class="passatger-btn">Savina</button>
@@ -164,10 +178,7 @@
         <div id="screen-bus" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
-                <div class="ml-4">
-                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Autobús</h2>
-                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Tickets de grup</span>
-                </div>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Autobús</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Tickets de grup</span></div>
             </header>
             <main class="p-6 space-y-3">
                 <button onclick="obrirPDF('bus_savina.pdf')" class="passatger-btn">Savina</button>
@@ -178,45 +189,40 @@
             </main>
         </div>
 
+        <!-- PANTALLA PASSATGERS (TREN) - NOVA PANTALLA -->
+        <div id="screen-tren" class="hidden fade-in flex flex-col flex-grow">
+            <header class="p-6 flex items-center border-b border-slate-200 bg-white">
+                <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Tren</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Bitllets Amsterdam</span></div>
+            </header>
+            <main class="p-6 space-y-3">
+                <button onclick="obrirPDF('tren_savina.pdf')" class="passatger-btn">Savina</button>
+                <button onclick="obrirPDF('tren_clara.pdf')" class="passatger-btn">Clara</button>
+                <button onclick="obrirPDF('tren_oliver.pdf')" class="passatger-btn">Òliver</button>
+                <button onclick="obrirPDF('tren_anna.pdf')" class="passatger-btn">Anna</button>
+                <button onclick="obrirPDF('tren_pep.pdf')" class="passatger-btn">Pep</button>
+            </main>
+        </div>
+
         <!-- SIGNATURA -->
         <footer class="text-center py-6 mt-auto">
             <a href="https://neurekalab.com" target="_blank" class="text-[10px] text-slate-300 font-bold uppercase tracking-widest italic">By NeurekaLAB</a>
         </footer>
     </div>
 
-    <style>
-        .passatger-btn {
-            width: 100%;
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: left;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: #475569;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        }
-        .passatger-btn:active { transform: scale(0.98); }
-        .passatger-btn::after { content: 'PDF →'; color: #6366f1; font-size: 10px; font-weight: 900; }
-    </style>
-
     <script>
         function showScreen(screenId) {
-            document.getElementById('screen-home').classList.add('hidden');
-            document.getElementById('screen-reserves').classList.add('hidden');
-            document.getElementById('screen-avions').classList.add('hidden');
-            document.getElementById('screen-bus').classList.add('hidden');
+            // Amagar totes les pantalles existents
+            const screens = ['screen-home', 'screen-reserves', 'screen-avions', 'screen-bus', 'screen-tren'];
+            screens.forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            // Mostrar la seleccionada
             document.getElementById(screenId).classList.remove('hidden');
             window.scrollTo(0,0);
         }
 
         function obrirPDF(fitxer) {
-            // Això obre el PDF en una pestanya nova. 
-            // Si el fitxer està a la mateixa carpeta de GitHub, funcionarà perfectament.
             window.open(fitxer, '_blank');
         }
     </script>
