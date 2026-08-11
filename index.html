@@ -3,65 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Viatge Brussel·les 2026</title>
+    <title>Brussel·les 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .fade-in { animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .btn-icon { transition: all 0.2s; }
         .btn-icon:active { transform: scale(0.95); }
+        
+        /* Estil icona calendari */
+        .cal-icon {
+            width: 80px;
+            height: 90px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .cal-header {
+            background: #ef4444; /* Vermell calendari */
+            height: 24px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cal-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 5px;
+        }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="bg-slate-100 font-sans text-slate-900">
 
-    <div class="max-w-md mx-auto min-h-screen flex flex-col shadow-2xl bg-white">
+    <div class="max-w-md mx-auto min-h-screen flex flex-col bg-slate-50 shadow-xl">
         
-        <!-- PANTALLA INICIAL: CALENDARI -->
-        <div id="screen-home" class="fade-in flex flex-col h-full flex-grow">
-            <header class="bg-blue-700 text-white p-8 text-center rounded-b-[3rem] shadow-lg">
-                <h1 class="text-3xl font-black tracking-tight uppercase">Brussel·les</h1>
-                <p class="text-blue-100 font-bold mt-1 uppercase tracking-widest text-xs">25 - 31 d'Agost 2026</p>
+        <!-- PANTALLA INICIAL -->
+        <div id="screen-home" class="fade-in flex flex-col flex-grow">
+            <header class="bg-indigo-900 text-white p-10 text-center rounded-b-[3rem] shadow-lg">
+                <h1 class="text-3xl font-black tracking-tighter uppercase leading-none">BRUSSEL·LES</h1>
+                <p class="text-indigo-300 font-bold mt-2 uppercase tracking-[0.3em] text-[10px]">Estiu 2026</p>
             </header>
 
             <main class="p-6 flex-grow">
-                <h2 class="text-center text-slate-400 font-black uppercase text-[10px] tracking-[0.2em] mb-6">Itinerari del viatge</h2>
-                
-                <!-- GRID DE DIES -->
-                <div class="grid grid-cols-2 gap-4">
-                    <button onclick="obrirPDF('dia25.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center">
-                        <span class="text-3xl mb-1">🇧🇪</span>
-                        <span class="font-black text-xl text-blue-700">25</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Dimarts</span>
+                <div class="grid grid-cols-3 gap-y-8 gap-x-2 mt-4 place-items-center">
+                    <!-- DIA 25 -->
+                    <button onclick="obrirPDF('dia25.pdf')" class="btn-icon flex flex-col items-center">
+                        <div class="cal-icon">
+                            <div class="cal-header">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-slate-700">25</span>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dt</span>
+                            </div>
+                        </div>
                     </button>
-                    <button onclick="obrirPDF('dia26.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center">
-                        <span class="text-3xl mb-1">🍫</span>
-                        <span class="font-black text-xl text-blue-700">26</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Dimecres</span>
+                    <!-- DIA 26 -->
+                    <button onclick="obrirPDF('dia26.pdf')" class="btn-icon flex flex-col items-center">
+                        <div class="cal-icon">
+                            <div class="cal-header">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-slate-700">26</span>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dc</span>
+                            </div>
+                        </div>
                     </button>
-                    <button onclick="obrirPDF('dia27.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center">
-                        <span class="text-3xl mb-1">🍟</span>
-                        <span class="font-black text-xl text-blue-700">27</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Dijous</span>
+                    <!-- DIA 27 -->
+                    <button onclick="obrirPDF('dia27.pdf')" class="btn-icon flex flex-col items-center">
+                        <div class="cal-icon">
+                            <div class="cal-header">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-slate-700">27</span>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dj</span>
+                            </div>
+                        </div>
                     </button>
-                    <button onclick="obrirPDF('dia28.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center">
-                        <span class="text-3xl mb-1">🏛️</span>
-                        <span class="font-black text-xl text-blue-700">28</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Divendres</span>
+                    <!-- DIA 28 -->
+                    <button onclick="obrirPDF('dia28.pdf')" class="btn-icon flex flex-col items-center">
+                        <div class="cal-icon">
+                            <div class="cal-header">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-slate-700">28</span>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dv</span>
+                            </div>
+                        </div>
                     </button>
-                    <button onclick="obrirPDF('dia29.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center">
-                        <span class="text-3xl mb-1">🇳🇱</span>
-                        <span class="font-black text-xl text-blue-700">29</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Dissabte</span>
+                    <!-- DIA 29 -->
+                    <button onclick="obrirPDF('dia29.pdf')" class="btn-icon flex flex-col items-center">
+                        <div class="cal-icon">
+                            <div class="cal-header">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-slate-700">29</span>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase">Ds</span>
+                            </div>
+                        </div>
                     </button>
-                    <button onclick="obrirPDF('dia30.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center">
-                        <span class="text-3xl mb-1">🎨</span>
-                        <span class="font-black text-xl text-blue-700">30</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Diumenge</span>
+                    <!-- DIA 30 -->
+                    <button onclick="obrirPDF('dia30.pdf')" class="btn-icon flex flex-col items-center">
+                        <div class="cal-icon">
+                            <div class="cal-header">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-slate-700">30</span>
+                                <span class="text-[8px] font-bold text-slate-400 uppercase">Dg</span>
+                            </div>
+                        </div>
                     </button>
-                    <button onclick="obrirPDF('dia31.pdf')" class="btn-icon bg-white border-2 border-slate-100 p-5 rounded-3xl shadow-sm flex flex-col items-center col-span-2">
-                        <span class="text-3xl mb-1">✈️</span>
-                        <span class="font-black text-xl text-blue-700">31 d'Agost</span>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase">Tornada</span>
+                    <!-- DIA 31 -->
+                    <button onclick="obrirPDF('dia31.pdf')" class="btn-icon flex flex-col items-center col-start-2">
+                        <div class="cal-icon border-indigo-200">
+                            <div class="cal-header bg-indigo-600">AGO</div>
+                            <div class="cal-body">
+                                <span class="text-3xl font-black text-indigo-700">31</span>
+                                <span class="text-[8px] font-bold text-indigo-400 uppercase">Dl</span>
+                            </div>
+                        </div>
                     </button>
                 </div>
             </main>
@@ -72,151 +135,122 @@
                         <span class="block font-black text-xl uppercase tracking-tight">Reserves</span>
                         <span class="text-xs text-slate-400 font-bold uppercase">Tickets i Confirmacions</span>
                     </div>
-                    <span class="text-3xl">📂</span>
+                    <span class="bg-slate-800 p-3 rounded-full text-xl">📂</span>
                 </button>
             </footer>
         </div>
 
         <!-- PANTALLA RESERVES -->
-        <div id="screen-reserves" class="hidden fade-in flex flex-col h-full flex-grow">
-            <header class="p-6 flex items-center border-b border-slate-100">
-                <button onclick="showScreen('screen-home')" class="bg-slate-100 w-12 h-12 rounded-full flex items-center justify-center text-xl">←</button>
+        <div id="screen-reserves" class="hidden fade-in flex flex-col flex-grow">
+            <header class="p-6 flex items-center border-b border-slate-200 bg-white sticky top-0 z-10">
+                <button onclick="showScreen('screen-home')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
                 <h2 class="ml-4 font-black text-2xl uppercase tracking-tighter">Reserves</h2>
             </header>
 
-            <main class="p-6 space-y-4 flex-grow">
-                <button onclick="showScreen('screen-avions')" class="w-full bg-blue-50 p-6 rounded-3xl flex items-center border-2 border-blue-100 btn-icon">
-                    <span class="text-3xl mr-4">✈️</span>
-                    <div class="text-left">
-                        <span class="block font-black text-lg text-blue-900 uppercase">Avió</span>
-                        <span class="text-xs text-blue-400 font-bold uppercase">Cartes d'embarcament</span>
-                    </div>
+            <main class="p-6 space-y-4">
+                <button onclick="showScreen('screen-avions')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                    <span class="text-2xl mr-4">✈️</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Avió</span>
+                    <span class="text-slate-300">→</span>
                 </button>
 
-                <button onclick="showScreen('screen-bus')" class="w-full bg-emerald-50 p-6 rounded-3xl flex items-center border-2 border-emerald-100 btn-icon">
-                    <span class="text-3xl mr-4">🚌</span>
-                    <div class="text-left">
-                        <span class="block font-black text-lg text-emerald-900 uppercase">Autobús</span>
-                        <span class="text-xs text-emerald-400 font-bold uppercase">Tickets de grup</span>
-                    </div>
+                <button onclick="showScreen('screen-bus')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                    <span class="text-2xl mr-4">🚌</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Autobús</span>
+                    <span class="text-slate-300">→</span>
                 </button>
 
-                <button onclick="obrirPDF('tren_amsterdam.pdf')" class="w-full bg-orange-50 p-6 rounded-3xl flex items-center border-2 border-orange-100 btn-icon">
-                    <span class="text-3xl mr-4">🚆</span>
-                    <div class="text-left">
-                        <span class="block font-black text-lg text-orange-900 uppercase">Tren Amsterdam</span>
-                        <span class="text-xs text-orange-400 font-bold uppercase">Anada i tornada</span>
-                    </div>
+                <button onclick="obrirPDF('tren_amsterdam.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                    <span class="text-2xl mr-4">🚆</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Tren Amsterdam</span>
+                    <span class="text-slate-300">→</span>
                 </button>
 
-                <button onclick="obrirPDF('museu_vangogh.pdf')" class="w-full bg-yellow-50 p-6 rounded-3xl flex items-center border-2 border-yellow-100 btn-icon">
-                    <span class="text-3xl mr-4">🌻</span>
-                    <div class="text-left">
-                        <span class="block font-black text-lg text-yellow-900 uppercase">Museu Van Gogh</span>
-                        <span class="text-xs text-yellow-500 font-bold uppercase">Entrada confirmada</span>
-                    </div>
+                <button onclick="obrirPDF('museu_vangogh.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                    <span class="text-2xl mr-4">🌻</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Museu Van Gogh</span>
+                    <span class="text-slate-300">→</span>
                 </button>
 
-                <button onclick="obrirPDF('casa_anafrank.pdf')" class="w-full bg-red-50 p-6 rounded-3xl flex items-center border-2 border-red-100 btn-icon">
-                    <span class="text-3xl mr-4">🏠</span>
-                    <div class="text-left">
-                        <span class="block font-black text-lg text-red-900 uppercase">Casa Ana Frank</span>
-                        <span class="text-xs text-red-400 font-bold uppercase">Entrada reservada</span>
-                    </div>
+                <button onclick="obrirPDF('casa_anafrank.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
+                    <span class="text-2xl mr-4">🏠</span>
+                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Casa Ana Frank</span>
+                    <span class="text-slate-300">→</span>
                 </button>
             </main>
         </div>
 
-        <!-- PANTALLA PASSATGERS (SUB-MENÚ AVIÓ) -->
-        <div id="screen-avions" class="hidden fade-in flex flex-col h-full flex-grow">
-            <header class="p-6 flex items-center border-b border-slate-100">
-                <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-12 h-12 rounded-full flex items-center justify-center text-xl">←</button>
+        <!-- PANTALLA PASSATGERS (AVIÓ) -->
+        <div id="screen-avions" class="hidden fade-in flex flex-col flex-grow">
+            <header class="p-6 flex items-center border-b border-slate-200 bg-white">
+                <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
                 <div class="ml-4">
-                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Embarcament Avió</h2>
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tria passatger</span>
+                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Avió</h2>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Cartes d'embarcament</span>
                 </div>
             </header>
-
-            <main class="p-6 grid grid-cols-1 gap-3">
-                <button onclick="obrirPDF('vol_savina.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Savina</span>
-                    <span class="text-blue-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('vol_clara.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Clara</span>
-                    <span class="text-blue-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('vol_oliver.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Òliver</span>
-                    <span class="text-blue-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('vol_anna.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Anna</span>
-                    <span class="text-blue-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('vol_pep.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Pep</span>
-                    <span class="text-blue-500 font-black">PDF →</span>
-                </button>
+            <main class="p-6 space-y-3">
+                <button onclick="obrirPDF('vol_savina.pdf')" class="passatger-btn">Savina</button>
+                <button onclick="obrirPDF('vol_clara.pdf')" class="passatger-btn">Clara</button>
+                <button onclick="obrirPDF('vol_oliver.pdf')" class="passatger-btn">Òliver</button>
+                <button onclick="obrirPDF('vol_anna.pdf')" class="passatger-btn">Anna</button>
+                <button onclick="obrirPDF('vol_pep.pdf')" class="passatger-btn">Pep</button>
             </main>
         </div>
 
-        <!-- PANTALLA PASSATGERS (SUB-MENÚ BUS) -->
-        <div id="screen-bus" class="hidden fade-in flex flex-col h-full flex-grow">
-            <header class="p-6 flex items-center border-b border-slate-100">
-                <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-12 h-12 rounded-full flex items-center justify-center text-xl">←</button>
+        <!-- PANTALLA PASSATGERS (BUS) -->
+        <div id="screen-bus" class="hidden fade-in flex flex-col flex-grow">
+            <header class="p-6 flex items-center border-b border-slate-200 bg-white">
+                <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
                 <div class="ml-4">
-                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Tickets Autobús</h2>
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Tria passatger</span>
+                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Bus</h2>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Tickets de grup</span>
                 </div>
             </header>
-
-            <main class="p-6 grid grid-cols-1 gap-3">
-                <button onclick="obrirPDF('bus_savina.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Savina</span>
-                    <span class="text-emerald-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('bus_clara.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Clara</span>
-                    <span class="text-emerald-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('bus_oliver.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Òliver</span>
-                    <span class="text-emerald-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('bus_anna.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Anna</span>
-                    <span class="text-emerald-500 font-black">PDF →</span>
-                </button>
-                <button onclick="obrirPDF('bus_pep.pdf')" class="bg-white border-2 border-slate-100 p-5 rounded-2xl flex justify-between items-center btn-icon">
-                    <span class="font-bold text-slate-700 uppercase">Pep</span>
-                    <span class="text-emerald-500 font-black">PDF →</span>
-                </button>
+            <main class="p-6 space-y-3">
+                <button onclick="obrirPDF('bus_savina.pdf')" class="passatger-btn">Savina</button>
+                <button onclick="obrirPDF('bus_clara.pdf')" class="passatger-btn">Clara</button>
+                <button onclick="obrirPDF('bus_oliver.pdf')" class="passatger-btn">Òliver</button>
+                <button onclick="obrirPDF('bus_anna.pdf')" class="passatger-btn">Anna</button>
+                <button onclick="obrirPDF('bus_pep.pdf')" class="passatger-btn">Pep</button>
             </main>
         </div>
 
         <!-- SIGNATURA -->
-        <footer class="text-center py-4 bg-white border-t border-slate-50">
+        <footer class="text-center py-6">
             <a href="https://neurekalab.com" target="_blank" class="text-[10px] text-slate-300 font-bold uppercase tracking-widest italic">By NeurekaLAB</a>
         </footer>
     </div>
 
+    <style>
+        .passatger-btn {
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: left;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .passatger-btn::after { content: 'PDF →'; color: #6366f1; font-size: 10px; }
+    </style>
+
     <script>
         function showScreen(screenId) {
-            // Amagar totes les pantalles
             document.getElementById('screen-home').classList.add('hidden');
             document.getElementById('screen-reserves').classList.add('hidden');
             document.getElementById('screen-avions').classList.add('hidden');
             document.getElementById('screen-bus').classList.add('hidden');
-
-            // Mostrar la seleccionada
             document.getElementById(screenId).classList.remove('hidden');
             window.scrollTo(0,0);
         }
 
         function obrirPDF(fitxer) {
-            // Funció per obrir el PDF que està a la mateixa carpeta de GitHub
-            // Si el fitxer no existeix a GitHub, donarà un error 404
             window.open(fitxer, '_blank');
         }
     </script>
