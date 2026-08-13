@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Viatge Brussel·les 2026</title>
-    <!-- Icona per a l'escriptori del mòbil (Brussel·les) -->
-<link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/321/321303.png">
-<link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/321/321303.png">
-<!-- Color de la barra del navegador -->
-<meta name="theme-color" content="#312e81">
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icona per a l'escriptori del mòbil -->
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/321/321303.png">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/321/321303.png">
+    <meta name="theme-color" content="#312e81">
+
     <style>
         .fade-in { animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -17,68 +18,41 @@
         .btn-icon:active { transform: scale(0.95); }
         
         .cal-icon {
-            width: 85px;
-            height: 95px;
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px -1px rgb(0 0 0 / 0.1);
-            border: 1px solid #e2e8f0;
+            width: 85px; height: 95px; background: white; border-radius: 15px;
+            overflow: hidden; box-shadow: 0 4px 10px -1px rgb(0 0 0 / 0.1); border: 1px solid #e2e8f0;
         }
         .cal-header {
-            background: #ef4444; 
-            height: 26px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 11px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            background: #ef4444; height: 26px; width: 100%; display: flex;
+            align-items: center; justify-content: center; color: white;
+            font-size: 11px; font-weight: 900; text-transform: uppercase;
         }
-        .cal-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding-top: 5px;
-        }
+        .cal-body { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 5px; }
 
         .passatger-btn {
-            width: 100%;
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: left;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: #475569;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            width: 100%; background: white; padding: 20px; border-radius: 20px;
+            text-align: left; font-weight: 800; text-transform: uppercase; color: #475569;
+            border: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center;
         }
-        .passatger-btn:active { transform: scale(0.98); }
         .passatger-btn::after { content: 'PDF →'; color: #6366f1; font-size: 10px; font-weight: 900; }
     </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-900">
 
-    <div class="max-w-md mx-auto min-h-screen flex flex-col bg-slate-50 shadow-xl">
+    <div class="max-w-md mx-auto min-h-screen flex flex-col bg-slate-50 shadow-xl relative">
         
-        <!-- PANTALLA INICIAL: CALENDARI -->
+        <!-- PANTALLA INICIAL -->
         <div id="screen-home" class="fade-in flex flex-col flex-grow">
-     <header class="bg-indigo-900 text-white p-10 text-center rounded-b-[3rem] shadow-lg">
-    <h1 class="text-3xl font-black tracking-tighter uppercase leading-none italic">BRUSSEL·LES</h1>
-    <p class="text-indigo-300 font-bold mt-2 uppercase tracking-[0.3em] text-[10px]">Agost 2026</p>
-</header>
+            <header class="bg-indigo-900 text-white p-10 text-center rounded-b-[3rem] shadow-lg relative">
+                <!-- BOTÓ SOS -->
+                <button onclick="obrirMenuSOS()" class="absolute top-6 right-6 bg-red-600 text-white p-2 px-3 rounded-full font-black text-[10px] shadow-lg animate-pulse">
+                    🚨 SOS
+                </button>
+                <h1 class="text-3xl font-black tracking-tighter uppercase leading-none italic">BRUSSEL·LES</h1>
+                <p class="text-indigo-300 font-bold mt-2 uppercase tracking-[0.3em] text-[10px]">Agost 2026</p>
+            </header>
 
             <main class="p-6 flex-grow">
                 <div class="grid grid-cols-3 gap-y-8 gap-x-2 mt-4 place-items-center">
-                    <!-- Botons del 25 al 31 -->
                     <button onclick="obrirPDF('dia25.pdf')" class="btn-icon flex flex-col items-center">
                         <div class="cal-icon"><div class="cal-header">AGO</div><div class="cal-body"><span class="text-3xl font-black text-slate-700">25</span><span class="text-[8px] font-bold text-slate-400 uppercase">Dt</span></div></div>
                     </button>
@@ -108,10 +82,7 @@
 
             <footer class="p-6">
                 <button onclick="showScreen('screen-reserves')" class="w-full bg-slate-900 text-white p-6 rounded-[2rem] shadow-xl flex items-center justify-between btn-icon">
-                    <div class="text-left">
-                        <span class="block font-black text-xl uppercase tracking-tight">Reserves</span>
-                        <span class="text-xs text-slate-400 font-bold uppercase tracking-wide">Documents i Tickets</span>
-                    </div>
+                    <div class="text-left"><span class="block font-black text-xl uppercase tracking-tight">Reserves</span><span class="text-xs text-slate-400 font-bold uppercase tracking-wide">Documents i Tickets</span></div>
                     <span class="bg-slate-800 p-3 rounded-full text-xl">📂</span>
                 </button>
             </footer>
@@ -123,72 +94,27 @@
                 <button onclick="showScreen('screen-home')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
                 <h2 class="ml-4 font-black text-2xl uppercase tracking-tighter">Reserves</h2>
             </header>
-
             <main class="p-6 space-y-4">
-                <button onclick="showScreen('screen-avions')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
-                    <span class="text-2xl mr-4">✈️</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Avió</span>
-                    <span class="text-slate-300">→</span>
-                </button>
-
-                <button onclick="showScreen('screen-bus')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
-                    <span class="text-2xl mr-4">🚌</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Autobús</span>
-                    <span class="text-slate-300">→</span>
-                </button>
-
-                <!-- BOTÓ HOTEL QUE PORTA A SUB-PANTALLA -->
-                <button onclick="showScreen('screen-hotel')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
-                    <span class="text-2xl mr-4">🏨</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Hotel</span>
-                    <span class="text-slate-300">→</span>
-                </button>
-
-                <button onclick="showScreen('screen-tren')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
-                    <span class="text-2xl mr-4">🚆</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Tren Amsterdam</span>
-                    <span class="text-slate-300">→</span>
-                </button>
-
-                <button onclick="obrirPDF('museu_vangogh.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
-                    <span class="text-2xl mr-4">🌻</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Museu Van Gogh</span>
-                    <span class="text-slate-300">→</span>
-                </button>
-
-                <button onclick="obrirPDF('casa_anafrank.pdf')" class="w-full bg-white p-5 rounded-3xl flex items-center border border-slate-200 btn-icon shadow-sm">
-                    <span class="text-2xl mr-4">🏠</span>
-                    <span class="font-bold text-slate-700 uppercase flex-grow text-left">Casa Ana Frank</span>
-                    <span class="text-slate-300">→</span>
-                </button>
+                <button onclick="showScreen('screen-avions')" class="passatger-btn shadow-sm"><span>✈️ Avió</span></button>
+                <button onclick="showScreen('screen-bus')" class="passatger-btn shadow-sm"><span>🚌 Autobús</span></button>
+                <button onclick="showScreen('screen-hotel')" class="passatger-btn shadow-sm"><span>🏨 Hotel</span></button>
+                <button onclick="showScreen('screen-tren')" class="passatger-btn shadow-sm"><span>🚆 Tren Amsterdam</span></button>
+                <button onclick="obrirPDF('museu_vangogh.pdf')" class="passatger-btn shadow-sm"><span>🌻 Museu Van Gogh</span></button>
+                <button onclick="obrirPDF('casa_anafrank.pdf')" class="passatger-btn shadow-sm"><span>🏠 Casa Ana Frank</span></button>
             </main>
         </div>
 
-        <!-- PANTALLA HOTEL (PDF + MAPS) -->
+        <!-- PANTALLA HOTEL -->
         <div id="screen-hotel" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
-                <div class="ml-4">
-                    <h2 class="font-black text-xl uppercase tracking-tighter leading-none">Hotel</h2>
-                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Reserva i Ubicació</span>
-                </div>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Hotel</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Reserva i Ubicació</span></div>
             </header>
             <main class="p-6 space-y-6">
                 <div class="bg-blue-50 p-8 rounded-[2rem] text-center border-2 border-blue-100">
                     <span class="text-5xl block mb-4">🏨</span>
-                    <h3 class="font-black text-slate-800 text-xl uppercase mb-2">Informació de l'Hotel</h3>
-                    <p class="text-slate-500 text-sm mb-6">Consulta la reserva o mira la ruta al mapa.</p>
-                    
-                    <div class="space-y-4">
-                        <button onclick="obrirPDF('reserva_hotel.pdf')" class="w-full bg-indigo-600 text-white p-5 rounded-2xl font-bold uppercase shadow-lg shadow-indigo-200 btn-icon">
-                            📄 Veure Reserva (PDF)
-                        </button>
-                        
-                        <!-- SUBSTITUEIX L'ENLLAÇ PER L'ADREÇA REAL -->
-                        <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Brussel·les+Hotel', '_blank')" class="w-full bg-emerald-600 text-white p-5 rounded-2xl font-bold uppercase shadow-lg shadow-emerald-200 btn-icon">
-                            📍 Com anar-hi (Maps)
-                        </button>
-                    </div>
+                    <button onclick="obrirPDF('reserva_hotel.pdf')" class="w-full bg-indigo-600 text-white p-5 rounded-2xl font-bold uppercase shadow-lg mb-4 btn-icon">📄 Veure Reserva (PDF)</button>
+                    <button onclick="window.open('https://www.google.com/maps/search/?api=1&query=Brussels+Hotel', '_blank')" class="w-full bg-emerald-600 text-white p-5 rounded-2xl font-bold uppercase shadow-lg btn-icon">📍 Com anar-hi (Maps)</button>
                 </div>
             </main>
         </div>
@@ -197,7 +123,7 @@
         <div id="screen-avions" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
-                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Avió</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Cartes d'embarcament</span></div>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Avió</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Embarcament</span></div>
             </header>
             <main class="p-6 space-y-3">
                 <button onclick="obrirPDF('vol_savina.pdf')" class="passatger-btn">Savina</button>
@@ -211,7 +137,7 @@
         <div id="screen-bus" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
-                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Autobús</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Tickets de grup</span></div>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Autobús</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Tickets</span></div>
             </header>
             <main class="p-6 space-y-3">
                 <button onclick="obrirPDF('bus_savina.pdf')" class="passatger-btn">Savina</button>
@@ -225,7 +151,7 @@
         <div id="screen-tren" class="hidden fade-in flex flex-col flex-grow">
             <header class="p-6 flex items-center border-b border-slate-200 bg-white">
                 <button onclick="showScreen('screen-reserves')" class="bg-slate-100 w-10 h-10 rounded-full flex items-center justify-center">←</button>
-                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Tren</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Bitllets Amsterdam</span></div>
+                <div class="ml-4"><h2 class="font-black text-xl uppercase tracking-tighter leading-none">Tren</h2><span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Amsterdam</span></div>
             </header>
             <main class="p-6 space-y-3">
                 <button onclick="obrirPDF('tren_savina.pdf')" class="passatger-btn">Savina</button>
@@ -236,8 +162,28 @@
             </main>
         </div>
 
+        <!-- MODAL SOS -->
+        <div id="sos-modal" class="hidden fixed inset-0 bg-slate-900/90 backdrop-blur-sm z-[100] flex flex-col items-center justify-end p-6">
+            <div class="bg-white w-full rounded-[2.5rem] p-8 fade-in">
+                <div class="text-center mb-6">
+                    <span class="text-5xl block mb-2">🚨</span>
+                    <h3 class="font-black text-2xl uppercase tracking-tight">Emergència</h3>
+                    <p class="text-slate-500 text-sm">Com vols enviar la ubicació?</p>
+                </div>
+                <div class="space-y-4">
+                    <button onclick="executarSOS('whatsapp')" class="w-full bg-emerald-500 text-white p-5 rounded-2xl font-black uppercase shadow-lg shadow-emerald-100 flex items-center justify-center gap-3 btn-icon">
+                        <span>WhatsApp / Compartir</span>
+                    </button>
+                    <button onclick="executarSOS('sms')" class="w-full bg-blue-600 text-white p-5 rounded-2xl font-black uppercase shadow-lg shadow-blue-100 flex items-center justify-center gap-3 btn-icon">
+                        <span>Enviar SMS als dos</span>
+                    </button>
+                    <button onclick="tancarMenuSOS()" class="w-full text-slate-400 font-bold uppercase text-xs py-2">Cancel·lar</button>
+                </div>
+            </div>
+        </div>
+
         <footer class="text-center py-6 mt-auto">
-            <target="_blank" class="text-[10px] text-slate-300 font-bold uppercase tracking-widest italic">By Família Serra-Casals</a>
+            <a href="https://neurekalab.com" target="_blank" class="text-[10px] text-slate-300 font-bold tracking-widest italic">By NeurekaLAB</a>
         </footer>
     </div>
 
@@ -249,8 +195,40 @@
             window.scrollTo(0,0);
         }
 
-        function obrirPDF(fitxer) {
-            window.open(fitxer, '_blank');
+        function obrirPDF(fitxer) { window.open(fitxer, '_blank'); }
+
+        // --- LÒGICA SOS ---
+        function obrirMenuSOS() { document.getElementById('sos-modal').classList.remove('hidden'); }
+        function tancarMenuSOS() { document.getElementById('sos-modal').classList.add('hidden'); }
+
+        function executarSOS(tipus) {
+            // CONFIGURACIÓ: Posa aquí els números reals
+            const tel1 = "34630483592"; 
+            const tel2 = "34606228170";
+            const tel3 = "34636666160";
+            const tel4 = "34650190036";
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    const mapUrl = `https://www.google.com/maps?q=${lat},${lon}`;
+                    const text = `EMERGÈNCIA: Necessitem ajuda. Ubicació: ${mapUrl}`;
+
+                    if (tipus === 'sms') {
+                        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+                        const sep = isIOS ? "," : ";";
+                        window.location.href = `sms:${tel1}${sep}${tel2}?body=${encodeURIComponent(text)}`;
+                    } else {
+                        // Funció de compartir nativa (permet triar WhatsApp i enviar a qui vulguis)
+                        if (navigator.share) {
+                            navigator.share({ title: 'Emergència', text: text }).catch(() => {});
+                        } else {
+                            window.location.href = `https://wa.me/?text=${encodeURIComponent(text)}`;
+                        }
+                    }
+                    tancarMenuSOS();
+                }, function() { alert("Activa el GPS per poder enviar la ubicació."); });
+            } else { alert("El GPS no està disponible."); }
         }
     </script>
 </body>
